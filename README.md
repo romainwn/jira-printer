@@ -32,3 +32,8 @@ npm run test:unit
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+### Color palette
+
+Comes from [FlatuiColors](https://flatuicolors.com/palette/fr)
