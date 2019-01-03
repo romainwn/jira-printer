@@ -3,18 +3,21 @@
     <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
     <LoginForm />
     <IssueForm />
+    <IssueList />
   </div>
 </template>
 
 <script>
-import LoginForm from './components/LoginForm.vue';
-import IssueForm from './components/IssueForm.vue';
+import LoginForm from '@/components/LoginForm.vue';
+import IssueForm from '@/components/IssueForm.vue';
+import IssueList from '@/components/IssueList.vue';
 
 export default {
   name: 'app',
   components: {
     LoginForm,
     IssueForm,
+    IssueList,
   },
 };
 </script>

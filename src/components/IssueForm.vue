@@ -21,12 +21,23 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="issue in issues" :key="issue.id">
-          <th>DL</th>
-          <th>{{issue.name}}</th>
-          <th>
+        <tr>
+          <!-- <form v-on:submit.prevent="addItem"> -->
+            <td></td>
+            <td>
+              <input type="text" placeholder="PROJ-123" v-model="issueName"/>
+            </td>
+            <td>
+              <button class="success" type="submit" v-on:click="addItem">Add</button>
+            </td>
+          <!-- </form> -->
+        </tr>
+        <tr v-for="issue in issueList" :key="issue.id">
+          <td>DL</td>
+          <td>{{issue.name}}</td>
+          <td>
             <button class="danger">Remove</button>
-          </th>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -38,7 +49,9 @@ export default {
   name: 'IssueForm',
   data() {
     return {
-      issues: [
+      issueName: '',
+      nextId: 4,
+      issueList: [
         {
           id: 1,
           name: 'RT-123',
@@ -54,16 +67,29 @@ export default {
       ],
     };
   },
+  methods: {
+    addItem() {
+      this.issueList.push({
+        name: this.issueName,
+        id: this.nextId,
+      });
+      this.nextId++;
+    },
+  },
 };
 </script>
 
 <style scoped>
 table {
   border: 1px solid #6a89cc;
+  width: 100%;
 }
 
 .container {
   width: 75%;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
 }
 
 .header {
@@ -86,5 +112,10 @@ button {
 }
 .danger {
   background-color: #eb2f06;
+}
+
+.success {
+  background-color: #78e08f;
+  color: #0a3d62;
 }
 </style>

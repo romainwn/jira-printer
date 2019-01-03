@@ -32,6 +32,9 @@ export default {
 </script>
 
 <style scoped>
+h1 {
+  margin: 16px;
+}
 .container {
   border: 1px solid black;
   width: 50%;
@@ -40,6 +43,7 @@ export default {
 .form-group {
   display: flex;
   flex-direction: column;
+  margin: 16px;
 }
 
 label {
