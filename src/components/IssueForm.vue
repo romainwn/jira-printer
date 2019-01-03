@@ -36,24 +36,24 @@
 <script>
 export default {
   name: 'IssueForm',
-  data () {
+  data() {
     return {
       issues: [
         {
-          id:1,
-          name: 'RT-123'
+          id: 1,
+          name: 'RT-123',
         },
         {
-          id:2,
-          name: 'WS-52'
+          id: 2,
+          name: 'WS-52',
         },
         {
-          id:3,
-          name: 'CLI-784'
+          id: 3,
+          name: 'CLI-784',
         },
-      ]
-    }
-  }
+      ],
+    };
+  },
 };
 </script>
 
