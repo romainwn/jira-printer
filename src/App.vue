@@ -1,13 +1,13 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
+    <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
     <LoginForm />
     <IssueForm />
   </div>
 </template>
 
 <script>
-import LoginForm from './components/LoginForm.vue'
+import LoginForm from './components/LoginForm.vue';
 import IssueForm from './components/IssueForm.vue';
 
 export default {
@@ -26,5 +26,9 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
   margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 </style>

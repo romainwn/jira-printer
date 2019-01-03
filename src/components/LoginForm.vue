@@ -1,23 +1,23 @@
 <template>
-<div>
+<div class="container">
   <h1>Login Form</h1>
   <form>
-    <div>
+    <div class="form-group">
       <label>Username</label>
       <input type="text" />
     </div>
 
-    <div>
+    <div class="form-group">
       <label>Password</label>
       <input type="password" />
     </div>
 
-    <div>
+    <div class="form-group">
       <label>Host</label>
       <input type="text" placeholder="https://jira.mydomain.com"/>
     </div>
 
-    <div>
+    <div class="form-group">
       <label>Port</label>
       <input type="text" placeholder="443" />
     </div>
@@ -27,6 +27,25 @@
 
 <script>
 export default {
-  name: 'LoginForm'
-}
+  name: 'LoginForm',
+};
 </script>
+
+<style scoped>
+.container {
+  border: 1px solid black;
+  width: 50%;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  color: green;
+  font-size: 2vh;
+}
+
+
+</style>
