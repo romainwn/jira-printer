@@ -22,15 +22,13 @@
       </thead>
       <tbody>
         <tr>
-          <!-- <form v-on:submit.prevent="addItem"> -->
-            <td></td>
-            <td>
-              <input type="text" placeholder="PROJ-123" v-model="issueName"/>
-            </td>
-            <td>
-              <button class="success" type="submit" v-on:click="addItem">Add</button>
-            </td>
-          <!-- </form> -->
+          <td></td>
+          <td>
+            <input type="text" placeholder="PROJ-123" v-model="issueName"/>
+          </td>
+          <td>
+            <button class="success" type="submit" v-on:click="addItem">Add</button>
+          </td>
         </tr>
         <tr v-for="issue in issueList" :key="issue.id">
           <td>DL</td>
@@ -45,35 +43,21 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   name: 'IssueForm',
   data() {
     return {
       issueName: '',
-      nextId: 4,
-      issueList: [
-        {
-          id: 1,
-          name: 'RT-123',
-        },
-        {
-          id: 2,
-          name: 'WS-52',
-        },
-        {
-          id: 3,
-          name: 'CLI-784',
-        },
-      ],
     };
   },
+  computed: mapState([
+    'issueList'
+  ]),
   methods: {
-    addItem() {
-      this.issueList.push({
-        name: this.issueName,
-        id: this.nextId,
-      });
-      this.nextId++;
+    addItem(state) {
+      this.$store.commit('addIssue', state.issueName);
     },
   },
 };
