@@ -34,7 +34,7 @@
           <td>DL</td>
           <td>{{issue.name}}</td>
           <td>
-            <button class="danger">Remove</button>
+            <button class="danger" v-on:click="removeItem(issue.id)">Remove</button>
           </td>
         </tr>
       </tbody>
@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex';
 
 export default {
   name: 'IssueForm',
@@ -53,11 +53,18 @@ export default {
     };
   },
   computed: mapState([
-    'issueList'
+    'issueList',
   ]),
   methods: {
-    addItem(state) {
-      this.$store.commit('addIssue', state.issueName);
+    ...mapActions([
+      'addIssue',
+      'removeIssue',
+    ]),
+    addItem() {
+      this.addIssue(this.issueName);
+    },
+    removeItem(id) {
+      this.removeIssue(id);
     },
   },
 };
