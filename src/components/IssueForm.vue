@@ -66,7 +66,10 @@ export default {
       this.addIssue(this.issueName);
     },
     removeItem(id) {
-      this.removeIssue(id);
+      if (issueList.length > 0) {
+
+        this.removeIssue(id);
+      }
     },
     downloadIssues() {
       this.fetchIssues();
