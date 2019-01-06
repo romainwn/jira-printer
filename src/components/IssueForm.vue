@@ -44,6 +44,7 @@
 
 <script>
 import { mapState, mapActions } from 'vuex';
+import axios from 'axios';
 
 export default {
   name: 'IssueForm',
@@ -59,6 +60,7 @@ export default {
     ...mapActions([
       'addIssue',
       'removeIssue',
+      'fetchIssues'
     ]),
     addItem() {
       this.addIssue(this.issueName);
@@ -66,6 +68,9 @@ export default {
     removeItem(id) {
       this.removeIssue(id);
     },
+    downloadIssues() {
+      this.fetchIssues();
+    }
   },
 };
 </script>

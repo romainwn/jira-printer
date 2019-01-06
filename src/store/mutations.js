@@ -6,4 +6,7 @@ export default {
   removeIssue(state, id) {
     state.issueList.splice(id, 1);
   },
+  fetchIssues(state, issues) {
+    state.formattedIssues = issues;
+  },
 };
