@@ -22,4 +22,7 @@ export default {
 
     commit('fetchIssues', issues);
   },
+  saveLoginInfos({ commit }, infos) {
+    commit('saveLoginInfos', infos);
+  },
 };

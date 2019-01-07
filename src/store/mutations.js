@@ -9,4 +9,7 @@ export default {
   fetchIssues(state, issues) {
     state.formattedIssues = issues;
   },
+  saveLoginInfos(state, infos) {
+    state.infos = infos;
+  },
 };
