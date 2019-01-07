@@ -22,7 +22,7 @@
       <input type="text" placeholder="443" v-model="port"/>
     </div>
 
-    <Button class="success" type="submit" text="Valider" />
+    <v-button class="success" type="submit" text="Valider" :onClick="saveInfos"/>
   </form>
 </div>
 </template>
@@ -35,7 +35,7 @@ import Button from '@/components/Button.vue';
 export default {
   name: 'LoginForm',
   components: {
-    Button,
+    'v-button': Button,
   },
   data() {
     return {

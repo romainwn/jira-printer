@@ -5,9 +5,9 @@
       <h1>Issue Form</h1>
 
       <div class="right-group">
-        <Button class="action" text="Download issues" />
-        <Button class="action" text="Print issues" />
-        <Button class="danger" text="Remove Issues" />
+        <v-button :onClick="test" class="action" text="Download issues" />
+        <v-button :onClick="test" class="action" text="Print issues" />
+        <v-button :onClick="test" class="danger" text="Remove Issues" />
       </div>
     </div>
 
@@ -27,14 +27,14 @@
             <input type="text" placeholder="PROJ-123" v-model="issueName"/>
           </td>
           <td>
-            <Button class="success" type="submit" v-on:click="addItem" text="Add" />
+            <v-button class="success" type="submit" :onClick="addItem" text="Add" />
           </td>
         </tr>
         <tr v-for="issue in issueList" :key="issue.id">
           <td>DL</td>
           <td>{{issue.name}}</td>
           <td>
-            <Button class="danger" v-on:click="removeItem(issue.id)" text="Remove"/>
+            <v-button class="danger" :onClick="removeItem(issue)" text="Remove"/>
           </td>
         </tr>
       </tbody>
@@ -51,7 +51,7 @@ import Button from '@/components/Button.vue';
 export default {
   name: 'IssueForm',
   components: {
-    Button,
+    'v-button': Button,
   },
   data() {
     return {
@@ -70,14 +70,17 @@ export default {
     addItem() {
       this.addIssue(this.issueName);
     },
-    removeItem(id) {
-      if (issueList.length > 0) {
-
-        this.removeIssue(id);
+    removeItem(issue) {
+      console.log(issue);
+      if (this.issueList.length > 0) {
+        this.removeIssue(issue);
       }
     },
     downloadIssues() {
       this.fetchIssues();
+    },
+    test() {
+      console.log('test');
     }
   },
 };

@@ -7,8 +7,8 @@ export default {
       id: state.nextIssueId,
     });
   },
-  removeIssue({ commit }, id) {
-    commit('removeIssue', id);
+  removeIssue({ commit }, issue) {
+    commit('removeIssue', issue);
   },
   fetchIssues({ commit }) {
     let issues;

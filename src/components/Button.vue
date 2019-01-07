@@ -1,5 +1,5 @@
 <template>
-  <button class="className">{{text}}</button>
+  <button @click="onClick" class="className">{{text}}</button>
 </template>
 
 <script>
@@ -13,7 +13,14 @@ export default {
     className: {
       type: String,
       required: false,
+    },
+    onClick: {
+      type: Function,
+      required: false,
     }
+  },
+  methods: {
+
   }
 }
 </script>
