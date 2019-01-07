@@ -5,9 +5,9 @@
       <h1>Issue Form</h1>
 
       <div class="right-group">
-        <button class="action">Download issues</button>
-        <button class="action">Print issues</button>
-        <button class="danger">Remove Issues</button>
+        <Button class="action" text="Download issues" />
+        <Button class="action" text="Print issues" />
+        <Button class="danger" text="Remove Issues" />
       </div>
     </div>
 
@@ -27,14 +27,14 @@
             <input type="text" placeholder="PROJ-123" v-model="issueName"/>
           </td>
           <td>
-            <button class="success" type="submit" v-on:click="addItem">Add</button>
+            <Button class="success" type="submit" v-on:click="addItem" text="Add" />
           </td>
         </tr>
         <tr v-for="issue in issueList" :key="issue.id">
           <td>DL</td>
           <td>{{issue.name}}</td>
           <td>
-            <button class="danger" v-on:click="removeItem(issue.id)">Remove</button>
+            <Button class="danger" v-on:click="removeItem(issue.id)" text="Remove"/>
           </td>
         </tr>
       </tbody>
@@ -46,8 +46,13 @@
 import { mapState, mapActions } from 'vuex';
 import axios from 'axios';
 
+import Button from '@/components/Button.vue';
+
 export default {
   name: 'IssueForm',
+  components: {
+    Button,
+  },
   data() {
     return {
       issueName: '',
@@ -99,22 +104,4 @@ table {
   justify-content: space-between;
 }
 
-button {
-  padding: 8px 16px;
-  color: whitesmoke;
-  border: none;
-  text-transform: uppercase;
-  margin: 8px;
-}
-.action {
-  background-color: #6a89cc;
-}
-.danger {
-  background-color: #eb2f06;
-}
-
-.success {
-  background-color: #78e08f;
-  color: #0a3d62;
-}
 </style>
