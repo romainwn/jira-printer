@@ -5,9 +5,9 @@
       <h1>Issue Form</h1>
 
       <div class="right-group">
-        <v-button :onClick="test" class="action" text="Download issues" />
+        <v-button :onClick="fetchAllIssues" class="action" text="Download issues" />
         <v-button :onClick="test" class="action" text="Print issues" />
-        <v-button :onClick="test" class="danger" text="Remove Issues" />
+        <v-button :onClick="removeAllIssues" class="danger" text="Remove Issues" />
       </div>
     </div>
 
@@ -34,7 +34,7 @@
           <td>DL</td>
           <td>{{issue.name}}</td>
           <td>
-            <v-button class="danger" :onClick="removeItem(issue)" text="Remove"/>
+            <v-button class="danger" :onClick="removeItem" text="Remove"/>
           </td>
         </tr>
       </tbody>
@@ -65,23 +65,32 @@ export default {
     ...mapActions([
       'addIssue',
       'removeIssue',
-      'fetchIssues'
+      'removeAllIssues',
+      'fetchIssues',
     ]),
     addItem() {
       this.addIssue(this.issueName);
     },
-    removeItem(issue) {
+    removeItem(e, issue) {
+      console.log(issue);
+      e.preventDefault();
       console.log(issue);
       if (this.issueList.length > 0) {
         this.removeIssue(issue);
       }
     },
+    fetchAllIssues() {
+      this.fetchIssues();
+    },
     downloadIssues() {
       this.fetchIssues();
     },
+    removeIssues() {
+      this.removeAllIssues();
+    },
     test() {
       console.log('test');
-    }
+    },
   },
 };
 </script>

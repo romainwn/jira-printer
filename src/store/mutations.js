@@ -12,4 +12,7 @@ export default {
   saveLoginInfos(state, infos) {
     state.infos = infos;
   },
+  removeAllIssues(state) {
+    state.issueList = [];
+  },
 };
